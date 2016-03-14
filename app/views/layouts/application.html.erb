@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- <div flash-message="5000" ></div>
+  <nav ng-controller="sessionCtrl as session">
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation"><a href="/home">Home</a></li>
+        <li role="presentation" ng-if="admin || backoffice"  ng-show="isAuthenticated"><a href="/maids/new">Maids Entry</a></li>
+        <li role="presentation" ng-if="admin"  ng-show="isAuthenticated"><a href="/maids">Maids</a></li>
+        <li role="presentation" ng-if="admin"  ng-show="isAuthenticated"><a href="/users">Users</a></li>
+        <li role="presentation"><a href ="/users/sign_in" ng-hide="isAuthenticated">Login</a></li>
+        <li role="presentation"><a href ="" ng-click="session.logout()" ng-show="isAuthenticated">Logout</a></li>
+      </ul>
+  </nav>
+  <div class="container-fluid" ng-view autoscroll="true"></div> -->
+<%= yield %>
+
+</body>
+</html>
