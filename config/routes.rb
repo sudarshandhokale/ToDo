@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+  resources :todos
+  resources :projects do
+    collection do
+      post :project_developer
+      post :remove_developer
+    end
+  end
+  resources :dashboard, only: [:index, :create]
+  resources :roles, only: :index
   devise_for :users
+  resources :users, only: :index
+  root 'dashboard#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

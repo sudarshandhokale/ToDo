@@ -1,0 +1,13 @@
+<form role="form" name="loginForm" ng-controller="signInCtrl as user" ng-submit="user.signIn()" novalidate>
+  <div class="form-content">
+    <div class="form-group">
+      <input type="email" ng-model="user.credentials.email" class="form-control input-underline input-lg" id="inputEmail1" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control input-underline input-lg" id="inputPassword" placeholder="Password" ng-model="user.credentials.password">
+    </div>
+  </div>
+  <input type="submit" class="btn rounded-btn" value="Log in">
+  &nbsp;
+  <a href="#" class="btn rounded-btn" ng-click="signUpForm()">Register</a>
+</form>

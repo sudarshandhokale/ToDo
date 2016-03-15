@@ -1,0 +1,73 @@
+<section class="main-container">
+  <div flash-message="5000" ></div>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>{{project.name}}</h1>
+      {{project.description}}
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="page-header">
+          <h5>Todo List for projects</h5>
+          <div class="row">
+            <div class="col-sm-8">
+              <div ng-include="'templates/todos/new.html'"></div>
+            </div>
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Summary</th>
+                    <th>Assign To</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="todo in project.todos">
+                    <td>{{todo.id}}</td>
+                    <td>{{todo.summary}}</td>
+                    <td>{{todo.developer}}</td>
+                    <td><a href="#" ng-click="deleteTodo(todo.id)">Delete</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="page-header">
+          <h5>Developers List for projects</h5>
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="form-group">
+                <select ng-model="developer" ng-options="user as user.full_name for user in users track by user.id" class="form-control input-underline input-lg select-role">
+                  <option value="">Select Developer</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-sm btn-primary" ng-click="addDeveloper(developer)">Add</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="user in project.developers">
+                {{user.full_name}}
+                <a class="pull-right" href="#" ng-click="removeDeveloper(user.id)">Remove</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

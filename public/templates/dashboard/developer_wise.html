@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th ng-repeat="user in users track by user.id">{{user.full_name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Done</td>
+        <td ng-repeat="user in users track by user.id">
+          <ul>
+            <li ng-repeat="todo in user.done_todos">Todo {{todo.id}} - {{todo.summary}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>In Progress</td>
+        <td ng-repeat="user in users track by user.id">
+          <ul>
+            <li ng-repeat="todo in user.in_progress_todos">Todo {{todo.id}} - {{todo.summary}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>New</td>
+        <td ng-repeat="user in users track by user.id">
+          <ul>
+            <li ng-repeat="todo in user.new_todos">Todo {{todo.id}} - {{todo.summary}}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

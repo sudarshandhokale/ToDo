@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th ng-repeat="project in projects track by project.id">{{project.name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Done</td>
+        <td ng-repeat="project in projects track by project.id">
+          <ul>
+            <li ng-repeat="todo in project.done_todos">Todo {{todo.id}} - {{todo.summary}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>In Progress</td>
+        <td ng-repeat="project in projects track by project.id">
+          <ul>
+            <li ng-repeat="todo in project.in_progress_todos">Todo {{todo.id}} - {{todo.summary}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>New</td>
+        <td ng-repeat="project in projects track by project.id">
+          <ul>
+            <li ng-repeat="todo in project.new_todos">Todo {{todo.id}} - {{todo.summary}}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<nav ng-controller="sessionCtrl as session" class="navbar navbar-dark bg-inverse navbar-fixed-top topnav" ng-show="isAuthenticated">
+  <div class="collapse navbar-toggleable-xs clearfix text-center">
+    <a href="#" class="navbar-brand">ToDo</a>
+    <ul class="nav navbar-nav top-nav navbar-right pull-xs-right top-right-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/" ng-show="admin">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects" ng-show="admin">Projects</a>
+      </li>
+      <li class="dropdown nav-item user-details">
+        <a href="#" id="single-button" class="nav-link dropdown-toggle" data-toggle="dropdown"> {{user.full_name}} <b class="caret"></b></a>
+        <ul class="dropdown-menu" aria-labelledby="single-button">
+          <li>
+            <a class="dropdown-item" href="#"> {{user.email}} </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"> {{user.role_name}} </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a class="dropdown-item" href="#" ng-click="session.logout()">Log Out</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

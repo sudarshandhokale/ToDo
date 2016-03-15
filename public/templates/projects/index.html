@@ -1,0 +1,22 @@
+<section class="main-container">
+  <div flash-message="5000" ></div>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>List projects <a class="btn btn-sm btn-secondary pull-right" href="#" ng-click="addProject()">Add Project</a>
+      </h1>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="project in projects">
+            <a href="/projects/{{project.id}}">{{project.name}}</a>
+            <a class="pull-right" href="#" ng-click="deleteProject(project.id)">Delete</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 col-sm-offset-2">
+        <div ng-show="newProject" ng-include="'templates/projects/new.html'"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<form role="form" name="registerForm" ng-controller="signUpCtrl as user" ng-submit="user.signUp()" novalidate>
+  <div class="form-content">
+    <div class="form-group" ng-class="errorClass('full_name')">
+      <input type="text" ng-model="user.credentials.full_name" class="form-control input-underline input-lg" id="inputFullName" name="full_name" placeholder="Full Name" capitalize-first>
+      <span class="help-block pull-left" ng-show="errorField('full_name')">{{errorMessage('full_name')}}</span>
+    </div>
+    <div class="form-group" ng-class="errorClass('role_id')">
+      <select ng-model="user.credentials.role_id" ng-options="role as role.name for role in roles track by role.id" name="role_id" class="form-control input-underline input-lg select-role">
+        <option value="">Role</option>
+      </select>
+      <span class="help-block pull-left" ng-show="errorField('role_id')">{{errorMessage('role_id')}}</span>
+    </div>
+    <div class="form-group" ng-class="errorClass('email')">
+      <input type="email" ng-model="user.credentials.email" class="form-control input-underline input-lg" id="inputEmail1" name="email" placeholder="Email">
+      <span class="help-block pull-left" ng-show="errorField('email')">{{errorMessage('email')}}</span>
+    </div>
+    <div class="form-group" ng-class="errorClass('password')">
+      <input type="password" class="form-control input-underline input-lg" id="inputPassword" placeholder="Password" name="password" ng-model="user.credentials.password">
+      <span class="help-block pull-left" ng-show="errorField('password')">{{errorMessage('password')}}</span>
+    </div>
+    <div class="form-group" ng-class="errorClass('password_confirmation')">
+      <input type="password" class="form-control input-underline input-lg" id="inputPasswordConfirmation" placeholder="Password Confirmation" name="password_confirmation" ng-model="user.credentials.password_confirmation">
+      <span class="help-block pull-left" ng-show="errorField('password_confirmation')">{{errorMessage('password_confirmation')}}</span>
+    </div>
+  </div>
+  <input type="submit" class="btn rounded-btn" value="Register">
+  &nbsp;
+  <a href="#" class="btn rounded-btn" ng-click="signInForm()">Login Page</a>
+</form>

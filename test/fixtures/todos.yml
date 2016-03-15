@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  summary: MyString
+  new: false
+  in_progress: false
+  done: false
+  project_id: 
+  user_id: 
+
+two:
+  summary: MyString
+  new: false
+  in_progress: false
+  done: false
+  project_id: 
+  user_id: 

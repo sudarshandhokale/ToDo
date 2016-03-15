@@ -1,0 +1,13 @@
+<div class="login-page">
+  <div flash-message="5000" ></div>
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <img src="assets/SB-admin.png" width="150px" class="user-avatar" />
+      <h1>ToDo</h1>
+        <!-- Login -->
+        <div ng-show="signInDiv" ng-include="'templates/devise/sign_in.html'"></div>
+        <!-- Register -->
+        <div ng-show="signUpDiv" ng-include="'templates/devise/sign_up.html'"></div>
+    </div>
+  </div>
+</div>

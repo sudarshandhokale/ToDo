@@ -1,0 +1,2 @@
+DEVELOPER = 'Developer'
+ADMIN = 'Admin'

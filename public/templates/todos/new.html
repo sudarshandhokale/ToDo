@@ -1,0 +1,15 @@
+<form role="form" name="todoForm" ng-controller="todoController as todo" ng-submit="createTodo(project.id)" novalidate>
+  <div class="form-content">
+    <div class="form-group" ng-class="errorClass('summary')">
+      <input type="text" ng-model="todo.summary" class="form-control input-underline input-lg" name="summary" placeholder="Summary">
+      <span class="help-block pull-left" ng-show="errorField('summary')"/>{{errorMessage('summary')}}</span>
+    </div>
+    <div class="form-group" ng-class="errorClass('user_id')">
+      <select ng-model="todo.user_id" ng-options="user as user.full_name for user in project.developers track by user.id" name="user_id" class="form-control input-underline input-lg select-role">
+        <option value="">Select Developer</option>
+      </select>
+      <span class="help-block pull-left" ng-show="errorField('user_id')">{{errorMessage('user_id')}}</span>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-sm btn-primary" value="Add"/>
+</form>
