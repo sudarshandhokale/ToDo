@@ -7,6 +7,10 @@ class Project < ActiveRecord::Base
     users.where(role_id: Role.developer)
   end
 
+  def admins
+    users.where(role_id: Role.admin)
+  end
+
   def new_todos
     todos.where(new: true)
   end

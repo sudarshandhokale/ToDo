@@ -17,7 +17,6 @@ class DashboardController < ApplicationController
   private
 
   def check_user
-    return redirect_to todos_path \
-    unless current_user.role_name.eql? ADMIN
+    return redirect_to todos_path unless current_user.admin?
   end
 end

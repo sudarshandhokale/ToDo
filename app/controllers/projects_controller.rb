@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects
+    authorize! :read, Project
     respond_to do |format|
       format.html
       format.json { render json: @projects.as_json, status: :ok }
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    authorize! :read, @project
     respond_to do |format|
       format.html
       format.json { render json: @project.as_json, status: :ok }
@@ -35,6 +37,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.users << current_user
+    authorize! :create, @project
     if @project.save
       render json: @project.as_json, status: :created
     else
@@ -45,6 +48,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    authorize! :update, @project
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -59,6 +63,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    authorize! :delete, @project
     @project.users.destroy_all
     @project.destroy
     respond_to do |format|
@@ -67,6 +72,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_developer
+    authorize! :create, @project
     @user = User.find_by_id(params[:developer_id])
     @project.users << @user unless developer_exist?
     respond_to do |format|
@@ -79,6 +85,7 @@ class ProjectsController < ApplicationController
   end
 
   def remove_developer
+    authorize! :delete, @project
     user = User.find_by_id(params[:developer_id])
     @project.users.delete(user) if user
     respond_to do |format|

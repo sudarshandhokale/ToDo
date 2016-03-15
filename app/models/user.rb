@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     role.try(:name)
   end
 
+  def admin?
+    role_name.eql? ADMIN
+  end
+
   def developer_wise
     users.where(role_id: Role.developer).uniq
   end

@@ -5,6 +5,7 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @todos = current_user.todos.group_by(&:project_name)
+    authorize! :read, Todo
     respond_to do |format|
       format.html
       format.json { render json: @todos.as_json, status: :ok }
@@ -29,6 +30,7 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
+    authorize! :create, @todo
     if @todo.save
       render json: @todo.as_json, status: :created
     else
@@ -39,6 +41,7 @@ class TodosController < ApplicationController
   # PATCH/PUT /todos/1
   # PATCH/PUT /todos/1.json
   def update
+    authorize! :update, @todo
     if @todo.update(todo_params)
       render json: @todo.as_json, status: :created
     else
@@ -49,6 +52,7 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.json
   def destroy
+    authorize! :delete, @todo
     @todo.destroy
     respond_to do |format|
       format.json { head :no_content }
