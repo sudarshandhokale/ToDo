@@ -2,7 +2,8 @@ var myApp = angular.module('todo', [
   'ngRoute',
   'ngResource',
   'Devise',
-  'flash'
+  'flash',
+  'googlechart'
 ]);
 
 myApp.config(['$routeProvider', '$httpProvider', '$locationProvider',
@@ -47,8 +48,7 @@ myApp.factory('User', ['$resource',function($resource){
 
 myApp.factory('DashUser', ['$resource',function($resource){
  return $resource('/dashboard.json', {},{
-   users: { method: 'GET', isArray: true },
-   projects: { method: 'POST', isArray: true }
+   users: { method: 'GET', isArray: true }
  })
 }]);
 

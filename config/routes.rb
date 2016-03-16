@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       post :remove_developer
     end
   end
-  resources :dashboard, only: [:index, :create]
+  resources :dashboard, only: :index
   resources :roles, only: :index
   devise_for :users
   resources :users, only: :index

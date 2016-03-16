@@ -19,9 +19,9 @@
               <tr ng-repeat="todo in values">
                 <td>{{todo.id}}</td>
                 <td>{{todo.summary}}</td>
-                <td><input type="checkbox" ng-model="todo.new" ng-click="changeStatus(todo)" disabled="disabled"> New</td>
+                <td><input type="checkbox" ng-model="todo.new" ng-click="changeStatus(todo)" disabled> New</td>
                 <td><input type="checkbox" ng-model="todo.in_progress" ng-click="changeStatus(todo, 'progress')"> In Progress</td>
-                <td><input type="checkbox" ng-model="todo.done" ng-click="changeStatus(todo, 'done')"> Done</td>
+                <td><input type="checkbox" ng-model="todo.done" ng-click="changeStatus(todo, 'done')" ng-disabled="!todo.in_progress"> Done</td>
               </tr>
             </tbody>
           </table>

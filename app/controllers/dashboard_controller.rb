@@ -9,11 +9,6 @@ class DashboardController < ApplicationController
     end
   end
 
-  def create
-    @projects = current_user.projects
-    render json: @projects.as_json, status: :ok
-  end
-
   private
 
   def check_user

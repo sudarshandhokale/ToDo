@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <select ng-model="project" ng-options="project as project.name for project in projects track by project.id" class="form-control input-underline input-lg select-role" ng-change="showGraph(project)">
+        <option value="">Select Project</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div google-chart chart="chartObject" class="pie-chart"></div>
