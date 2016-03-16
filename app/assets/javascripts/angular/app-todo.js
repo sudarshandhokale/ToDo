@@ -80,7 +80,8 @@ myApp.factory('Todo', ['$resource',function($resource){
  })
 }]);
 
-myApp.directive('capitalizeFirst', function (uppercaseFilter, $parse) {
+myApp.directive('capitalizeFirst', ['uppercaseFilter', '$parse',
+  function (uppercaseFilter, $parse) {
   return {
     require: 'ngModel',
     scope: {
@@ -92,4 +93,4 @@ myApp.directive('capitalizeFirst', function (uppercaseFilter, $parse) {
       });
     }
   };
-});
+}]);

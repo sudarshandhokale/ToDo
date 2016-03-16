@@ -1,7 +1,7 @@
 var app = angular.module('todo');
 app.controller('todoController', ['$scope', '$route', 'Todos', 'Flash',
   function($scope, $route, Todos, Flash){
-    $scope.todo = { summary: '', user_id: '' }
+    $scope.todo = { summary: '', user_id: '' };
 
     $scope.createTodo = function(project_id){
       $scope.todo['project_id'] = project_id;
